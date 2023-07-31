@@ -24,10 +24,10 @@ class MyCommerceController extends Controller
         ]);
     }
 
-    public function detail()
+    public function detail($id)
     {
         return view('website.detail.index', [
-            'categories' => Category::all(),
+            'product' => Product::find($id)
         ]);
     }
 }
