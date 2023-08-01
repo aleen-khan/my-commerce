@@ -113,7 +113,7 @@
                                 <div class="right">
                                     <ul>
                                         <li>Cart Subtotal<span>{{$sum}}</span></li>
-                                        <li>Tax(10%)<span>{{$tax = ($sum*10)/100}}</span></li>
+                                        <li>Tax(10%)<span>{{$tax = round(($sum*10)/100)}}</span></li>
                                         <li>Shipping<span>{{$shipping = 100}}</span></li>
                                         <li class="last">Total Payable<span>{{$totalPayable = $sum+$tax+$shipping}}</span></li>
                                     </ul>
