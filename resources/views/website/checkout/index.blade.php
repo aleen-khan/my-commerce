@@ -43,7 +43,12 @@
                                             <div class="single-form form-default">
                                                 <label>Full Name</label>
                                                 <div class="col-md-12 form-input form">
-                                                    <input type="text" required name="name" placeholder="Full Name">
+                                                    @if(isset($customer->id))
+                                                        <input type="text" required name="name" value="{{$customer->name}}" readonly placeholder="Full Name">
+                                                    @else
+                                                        <input type="text" required name="name" placeholder="Full Name">
+                                                        <span class="text-danger">{{ $errors->has('name') ? $errors->first('name') : '' }}</span>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -51,7 +56,12 @@
                                             <div class="single-form form-default">
                                                 <label>Email Address</label>
                                                 <div class="form-input form">
-                                                    <input type="text" required name="email" placeholder="Email Address">
+                                                    @if(isset($customer->id))
+                                                        <input type="text" required name="email" value="{{$customer->email}}" readonly placeholder="Email Address">
+                                                    @else
+                                                        <input type="text" required name="email" placeholder="Email Address">
+                                                        <span class="text-danger">{{ $errors->has('email') ? $errors->first('email') : '' }}</span>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -59,7 +69,12 @@
                                             <div class="single-form form-default">
                                                 <label>Phone Number</label>
                                                 <div class="form-input form">
-                                                    <input type="number" required name="mobile" placeholder="Phone Number">
+                                                    @if(isset($customer->id))
+                                                        <input type="number" required name="mobile" value="{{$customer->mobile}}" readonly placeholder="Phone Number">
+                                                    @else
+                                                        <input type="number" required name="mobile" placeholder="Phone Number">
+                                                        <span class="text-danger">{{ $errors->has('mobile') ? $errors->first('mobile') : '' }}</span>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -68,6 +83,7 @@
                                                 <label>Delivery Address</label>
                                                 <div class="form-input form">
                                                     <textarea name="delivery_address" placeholder="Order Delivery Address" style="padding-top: 10px; height: 100px;"></textarea>
+                                                    <span class="text-danger">{{ $errors->has('delivery_address') ? $errors->first('delivery_address') : '' }}</span>
                                                 </div>
                                             </div>
                                         </div>
