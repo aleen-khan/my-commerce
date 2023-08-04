@@ -110,7 +110,110 @@
                                     </div>
                                 </form>
                             </div>
-                            <div class="tab-pane fade show active" id="online"></div>
+                            <div class="tab-pane fade show px-3" id="online">
+                                <form action="{{ url('/pay') }}" method="POST" class="needs-validation">
+                                    <input type="hidden" value="{{ csrf_token() }}" name="_token" />
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="single-form form-default">
+                                                <label>Full name</label>
+                                                <div class="col-md-12 form-input form">
+                                                    <input type="text" name="name" class="form-control" id="customer_name" placeholder="Full Name" required>
+                                                    <div class="invalid-feedback">
+                                                        Valid Customer name is required.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="single-form form-default">
+                                                <label>Mobile</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">+88</span>
+                                                    </div>
+                                                    <input type="number" name="mobile" class="form-control" id="mobile" placeholder="Mobile" required>
+                                                    <div class="invalid-feedback" style="width: 100%;">
+                                                        Your Mobile number is required.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="single-form form-default">
+                                                <label>Email Address</label>
+                                                <div class="col-md-12 form-input form">
+                                                    <input type="email" name="email" class="text-muted" id="email" placeholder="you@example.com" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter a valid email address for shipping updates.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="single-form form-default">
+                                                <label>Delivery Address</label>
+                                                <div class="form-input form">
+                                                    <textarea name="delivery_address" id="delivery_address" placeholder="Order Delivery Address" style="padding-top: 10px; height: 100px;"></textarea>
+                                                    <div class="invalid-feedback">
+                                                        Please enter your shipping address.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-5 mb-3">
+                                                <label for="country">Country</label>
+                                                <select class="custom-select d-block w-100 form-control" id="country" required>
+                                                    <option value="">Choose...</option>
+                                                    <option value="Bangladesh">Bangladesh</option>
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    Please select a valid country.
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label for="state">State</label>
+                                                <select class="custom-select d-block w-100 form-control" id="state" required>
+                                                    <option value="">Choose...</option>
+                                                    <option value="Dhaka">Dhaka</option>
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    Please provide a valid state.
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <label for="zip">Zip</label>
+                                                <input type="text" class="form-control" id="zip" placeholder="" required>
+                                                <div class="invalid-feedback">
+                                                    Zip code required.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="single-form form-default">
+                                                <label>Payment Type</label>
+                                                <div class="">
+                                                    <level><input type="radio" checked name="payment_type" value="2">Online</level>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="single-checkbox checkbox-style-3">
+                                                <input type="checkbox" id="checkbox-33" checked>
+                                                <label for="checkbox-33"><span></span></label>
+                                                <p>I Accept All Terms & Condition</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="single-form button">
+                                                <button type="submit" class="btn">Continue to Checkout</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
