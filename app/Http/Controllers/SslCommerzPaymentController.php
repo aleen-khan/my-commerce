@@ -203,7 +203,7 @@ class SslCommerzPaymentController extends Controller
             ->where('transaction_id', $tran_id)
             ->select('transaction_id', 'order_status', 'currency', 'order_total')->first();
 
-        if ($order_details->order_status == 'Pending') {
+        if ($order_details->order_status == 'pending') {
             $validation = $sslc->orderValidate($request->all(), $tran_id, $amount, $currency);
 
             if ($validation) {
@@ -214,17 +214,18 @@ class SslCommerzPaymentController extends Controller
                 */
                 $update_product = DB::table('orders')
                     ->where('transaction_id', $tran_id)
-                    ->update(['order_status' => 'Processing']);
+                    ->update(['order_status' => 'processing']);
 
                 echo "<br >Transaction is successfully Completed";
 
                 return redirect('/complete-order')->with('message', 'Congratulations ... Your Order Info Post Successfully. Please wait, we will Contact with You Soon.');
             }
-        } else if ($order_details->order_status == 'Processing' || $order_details->order_status == 'Complete') {
+        } else if ($order_details->order_status == 'processing' || $order_details->order_status == 'complete') {
             /*
              That means through IPN Order status already updated. Now you can just show the customer that transaction is completed. No need to udate database.
              */
             echo "Transaction is successfully Completed";
+
             return redirect('/complete-order')->with('message', 'Congratulation ... Your Order Info Post Successfully. Please wait, we will Contact with You Soon.');
         } else {
             #That means something wrong happened. You can redirect customer to your product page.
@@ -290,7 +291,7 @@ class SslCommerzPaymentController extends Controller
                 ->where('transaction_id', $tran_id)
                 ->select('transaction_id', 'order_status', 'currency', 'order_total')->first();
 
-            if ($order_details->order_status == 'Pending') {
+            if ($order_details->order_status == 'pending') {
                 $sslc = new SslCommerzNotification();
                 $validation = $sslc->orderValidate($request->all(), $tran_id, $order_details->order_total, $order_details->currency);
                 if ($validation == TRUE) {
@@ -301,11 +302,11 @@ class SslCommerzPaymentController extends Controller
                     */
                     $update_product = DB::table('orders')
                         ->where('transaction_id', $tran_id)
-                        ->update(['order_status' => 'Processing']);
+                        ->update(['order_status' => 'processing']);
 
                     echo "Transaction is successfully Completed";
                 }
-            } else if ($order_details->order_status == 'Processing' || $order_details->order_status == 'Complete') {
+            } else if ($order_details->order_status == 'processing' || $order_details->order_status == 'complete') {
 
                 #That means Order status already updated. No need to udate database.
 
