@@ -32,20 +32,20 @@
                                     <td>{{$order->order_total}}</td>
                                     <td>{{$order->order_status}}</td>
                                     <td>{{$order->payment_status}}</td>
-                                    <td>
-                                        <a href="{{route('admin.order-detail', ['id' => $order->id])}}" class="btn btn-info btn-sm" title="View Order Details">
+                                    <td class="btn-group" >
+                                        <a href="{{route('admin.order-detail', ['id' => $order->id])}}" class="btn btn-info btn-sm m-1" title="View Order Details">
                                             <i class="ti-info-alt"></i>
                                         </a>
-                                        <a href="{{route('admin.order-edit', ['id' => $order->id])}}" class="btn btn-success btn-sm" title="Order Edit">
+                                        <a href="{{route('admin.order-edit', ['id' => $order->id])}}" class="btn btn-success btn-sm m-1" title="Order Edit">
                                             <i class="ti-pencil-alt"></i>
                                         </a>
-                                        <a href="{{route('admin.order-invoice', ['id' => $order->id])}}" class="btn btn-primary btn-sm" title="View Order Invoice">
+                                        <a href="{{route('admin.order-invoice', ['id' => $order->id])}}" class="btn btn-primary btn-sm m-1" title="View Order Invoice">
                                             <i class="ti-clipboard"></i>
                                         </a>
-                                        <a href="{{route('admin.print-invoice', ['id' => $order->id])}}" class="btn btn-dark btn-sm" title="Print Order Invoice">
+                                        <a href="{{route('admin.print-invoice', ['id' => $order->id])}}" target="_blank" class="btn btn-dark btn-sm m-1" title="Print Order Invoice">
                                             <i class="ti-printer"></i>
                                         </a>
-                                        <a href="{{route('admin.order-delete', ['id' => $order->id])}}" class="btn btn-danger btn-sm" title="Delete Order" onclick="return confirm('Are You Sure To Delete This');">
+                                        <a href="{{route('admin.order-delete', ['id' => $order->id])}}" class="btn btn-danger btn-sm m-1" title="Delete Order" onclick="return confirm('Are You Sure To Delete This');">
                                             <i class="ti-trash"></i>
                                         </a>
                                     </td>
